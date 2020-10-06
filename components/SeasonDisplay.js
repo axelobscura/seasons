@@ -5,7 +5,8 @@ class SeasonDisplay extends Component {
     constructor(props){
         super(props);
         this.state = {
-            lat: null
+            lat: null,
+            errorMessage: ''
         };
         if (typeof window !== "undefined") {
             window.navigator.geolocation.getCurrentPosition(
@@ -14,17 +15,21 @@ class SeasonDisplay extends Component {
                         lat: position.coords.latitude
                     })
                 },
-                (err) => console.log(err)
+                (err) => {
+                    this.setState({
+                        errorMessage: err.message
+                    })
+                }
             );
         }
         
     }
     render(){
-        
         return(
             <>
                 <h1>Season Display</h1>
                 <h2>Latitude: {this.state.lat}</h2>
+                <h3>Error: {this.state.errorMessage}</h3>
             </>
         )
     }
