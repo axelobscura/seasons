@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 
 
 class SeasonDisplay extends Component {
-    render(){
+    constructor(props){
+        super(props);
+
+        this.state = {
+            lat: null
+        };
+
         window.navigator.geolocation.getCurrentPosition(
-            (position) => console.log(position),
+            (position) => {
+                this.setState({
+                    lat: position.coords.latitude
+                })
+            },
             (err) => console.log(err)
-        )
+        );
+    }
+    render(){
+        
         return(
-            <h1>Season Display</h1>
+            <>
+                <h1>Season Display</h1>
+                <h2>Latitude: {this.state.lat}</h2>
+            </>
         )
     }
 }
