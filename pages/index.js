@@ -1,23 +1,19 @@
 import Head from 'next/head'
+import SeasonDisplay from '../components/SeasonDisplay'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
-  window.navigator.geolocation.getCurrentPosition(
-    (position) => console.log(position),
-    (err) => console.log(err)
-  )
-
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>SEASONS APP</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
       </Head>
 
       <main className={styles.main}>
-
+        <SeasonDisplay />
       </main>
 
       <footer className={styles.footer}>
