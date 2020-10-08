@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 
 class SeasonDisplay extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            lat: null,
-            errorMessage: ''
-        };
-    }
+    state = { lat: null, errorMessage: '' };
 
     componentDidMount(){
         if (typeof window !== "undefined") {
